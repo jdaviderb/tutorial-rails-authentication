@@ -1,0 +1,24 @@
+<%unless session[:login].present?%>
+
+
+<h1><%=notice%></h1>
+<%=form_for :login, :url => {action: :create} do |x|%>
+
+<%=x.text_field :username%>
+<%=x.password_field :password%>
+
+<%=x.submit "entrar"%>
+
+<%end%>
+
+
+
+<%end%>
+
+
+
+<%if session[:login]%>
+
+<%=link_to "salir", salir_sessions_path%>
+
+<%end%>
